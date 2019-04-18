@@ -18,7 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+<<<<<<< HEAD
 
 Route::resource('usuarios', 'UsersController');
 Route::resource('usuarios', 'RolesController');
 
+=======
+>>>>>>> 2efc9122754f1d64287b2521fcf9298800e9d2d2
