@@ -9,11 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="index/assets/images/favicon.png">
     <title>Nuevo Usuario</title>
     <!-- Custom CSS -->
-    <link href="dist/css/style.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/libs/select2/dist/css/select2.min.css">
+    <link href="{{ asset('index/dist/css/style.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('index/assets/libs/select2/dist/css/select2.min.css') }}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -43,7 +43,7 @@
             <div class="auth-box bg-dark border-top border-secondary">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="assets/images/logo.png" alt="logo"></span>
+                        <span class="db"><img src="index/assets/images/logo.png" alt="logo"></span>
                     </div>
                     <!-- Form -->
                     <form class="form-horizontal m-t-20" action="{{ route('register') }}" method="POST">
@@ -85,9 +85,7 @@
                                     <span class="input-group-text bg-success text-white" id="basic-addon2"><i class="ti-user"></i></span>
                                     <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="role_id">
 
-                                        @foreach($lista as $option)
-                                        <option value="{{ $option->id }}" >{{ $option->nombre }}</option>
-                                         @endforeach
+                                        
                                          
                                     </select>
                                 </div>
@@ -135,10 +133,10 @@
     <!-- ============================================================== -->
     <!-- All Required js -->
     <!-- ============================================================== -->
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="index/assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="index/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="index/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->
