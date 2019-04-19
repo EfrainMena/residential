@@ -12,12 +12,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('index/assets/images/favicon.png') }}">
     <title>Administrador</title>
     <!-- Custom CSS -->
-    <link href="{{ asset('index/assets/libs/flot/css/float-chart.css') }}" rel="stylesheet"> 
-    <!-- Custom CSS -->
     <link href="{{ asset('index/dist/css/style.min.css') }}" rel="stylesheet">
     <!--tables-->
     <link rel="stylesheet" type="text/css" href="{{ asset('index/assets/extra-libs/multicheck/multicheck.css') }}">
-    <link href="{{ asset('index/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
     <link href="{{ asset('index/dist/css/style.min.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -139,8 +136,7 @@
     <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src="index/assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="index/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->S
     <script src="index/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="index/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <script src="index/assets/extra-libs/sparkline/sparkline.js"></script>
@@ -155,9 +151,7 @@
     <!-- Charts js Files -->
     <!--Otro-->
 <!-- this page js -->
-    <script src="index/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
     <script src="index/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-    <script src="index/assets/extra-libs/DataTables/datatables.min.js"></script>
 
 </body>
 {{-- https://realrashid.github.io/sweet-alert/helpers?id=autoclose-alert --}}
