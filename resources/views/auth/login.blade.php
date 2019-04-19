@@ -132,7 +132,6 @@
     <!-- ============================================================== -->
     <script src="index/assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="index/assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="index/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- ============================================================== -->
     <!-- This page plugin js -->
