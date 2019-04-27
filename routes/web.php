@@ -21,6 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('usuarios', 'UsersController');
-Route::resource('usuarios', 'RolesController');
+Route::resource('roles', 'RolesController');
 
 
