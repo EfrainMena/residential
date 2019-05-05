@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Agency - Start Bootstrap Theme</title>
+  <title>Residencial-SanBenedicEsmeralda</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{{ asset('welcome/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -29,7 +29,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">SanBenedicEsmeralda</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -37,25 +37,25 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            <a class="nav-link js-scroll-trigger" href="#services">Servicios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+            <a class="nav-link js-scroll-trigger" href="#portfolio">Galeria</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            <a class="nav-link js-scroll-trigger" href="#about">Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+            <a class="nav-link js-scroll-trigger" href="#team">Equipo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="#contact">Contáctanos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{{ route('login') }}">Login</a>
+            <a class="nav-link js-scroll-trigger" href="{{ route('login') }}">Iniciar Sesión</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{{ route('register') }}">Regiter</a>
+            <a class="nav-link js-scroll-trigger" href="{{ route('register') }}">Registrarse</a>
           </li>
         </ul>
       </div>
@@ -67,8 +67,8 @@
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Residencial</div>
-        <div class="intro-heading text-uppercase">San Benedic</div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+        <div class="intro-heading text-uppercase">San Benedic Esmeralda</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Ver más</a>
       </div>
     </div>
   </header>
@@ -78,8 +78,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Services</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase">Servicios</h2>
+          <h3 class="section-subheading text-muted">Disfruta de nuestros servicios.</h3>
         </div>
       </div>
       <div class="row text-center">
@@ -88,24 +88,24 @@
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">E-Commerce</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <h4 class="service-heading">Cafetería</h4>
+          <p class="text-muted">Contamos con un ambiente cómodo para que a cualquier hora del día puedas disfrutar de un rica merienda.</p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Responsive Design</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <h4 class="service-heading">Habitaciones</h4>
+          <p class="text-muted">Ambientes cómodos para un buen descanso.</p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Web Security</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <h4 class="service-heading">Ventas</h4>
+          <p class="text-muted">El cliente tiene productos a su disposición.</p>
         </div>
       </div>
     </div>
@@ -116,8 +116,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Portfolio</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase">Galería</h2>
+          <h3 class="section-subheading text-muted">Aquí te dejamos algunas imágenes.</h3>
         </div>
       </div>
       <div class="row">
@@ -214,8 +214,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">About</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase">San Benedic Esmeralda</h2>
+          <h3 class="section-subheading text-muted"></h3>
         </div>
       </div>
       <div class="row">
@@ -227,11 +227,11 @@
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>2009-2011</h4>
-                  <h4 class="subheading">Our Humble Beginnings</h4>
+                  {{-- <h4>Visión</h4> --}}
+                  <h4 class="subheading">Visión</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <p class="text-muted">Ser reconocidos a nivel nacional e internacional, como una residencial original, sólida y profesional, con calidad humana y pricipios éticos, que ofrece servicios y productos de excelencia para lograr una empresa altamente productiva, innovadora, competitiva y dediacada para la satisfacción plena de nuestros huéspedes.</p>
                 </div>
               </div>
             </li>
@@ -241,11 +241,11 @@
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>March 2011</h4>
-                  <h4 class="subheading">An Agency is Born</h4>
+                  {{-- <h4>March 2011</h4> --}}
+                  <h4 class="subheading">Misión</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <p class="text-muted">Ser la empresa de servicios de hospedaje y alimentos, que brinda una experiencia de descanso, armonía, paz y seguridad, dentro de un ambiente de la cultura boliviana, logrando la preferencia de todos los potenciales clientes, superando siempre las espectativas de nuestros huéspedes.</p>
                 </div>
               </div>
             </li>
@@ -255,15 +255,22 @@
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>December 2012</h4>
-                  <h4 class="subheading">Transition to Full Service</h4>
+                  {{-- <h4>December 2012</h4> --}}
+                  <h4 class="subheading">Nuestras políticas</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  {{-- <p class="text-muted"></p> --}}
+                  <ul>
+                    <li class="timeline-inverted" style="text-align: left;">El cliente siempre tiene la razón, atendiendo todas sus necesidades y exigencias dentro de las normativas de cada área.</li>
+                    <li class="timeline-inverted" style="text-align: left;">Desempeñar las funciones con profesionalismo y responsabilidad, manteniendo una relacion de respeto mutuo con superiores, dependientes, clientes y colegas.</li>
+                    <li class="timeline-inverted" style="text-align: left;">Dentro de la imagen corporativa de la empresa, todos los jefes de área y personal deberá asistir con uniforme proporcionado o dispuesto por la empresa.</li>
+                    <li class="timeline-inverted" style="text-align: left;">Dar estricto cumplimiento al reglamento interno con prioridad inmediata el respeto al orden jerárquicoy cumplimiento de la carga horaria asignada.</li>
+                    
+                  </ul>
                 </div>
               </div>
             </li>
-            <li class="timeline-inverted">
+            {{-- <li class="timeline-inverted">
               <div class="timeline-image">
                 <img class="rounded-circle img-fluid" src="{{ asset('welcome/img/about/4.jpg') }}" alt="">
               </div>
@@ -276,12 +283,12 @@
                   <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                 </div>
               </div>
-            </li>
+            </li> --}}
             <li class="timeline-inverted">
               <div class="timeline-image">
-                <h4>Be Part
-                  <br>Of Our
-                  <br>Story!</h4>
+                <h4>¡Sé parte
+                  <br>De Nuestra
+                  <br>Historia!</h4>
               </div>
             </li>
           </ul>
@@ -295,36 +302,36 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase">Nuestro equipo</h2>
+          <h3 class="section-subheading text-muted">Te presentamos a nuestro equipo.</h3>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-4">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="{{ asset('welcome/img/team/1.jpg') }}" alt="">
-            <h4>Kay Garland</h4>
-            <p class="text-muted">Lead Designer</p>
+            <h4>nombreRecepcion</h4>
+            <p class="text-muted">Recepcionista</p>
           </div>
         </div>
         <div class="col-sm-4">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="{{ asset('welcome/img/team/2.jpg') }}" alt="">
-            <h4>Larry Parker</h4>
-            <p class="text-muted">Lead Marketer</p>
+            <h4>nombreDueño</h4>
+            <p class="text-muted">Gerente propietario</p>
           </div>
         </div>
         <div class="col-sm-4">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="{{ asset('welcome/img/team/3.jpg') }}" alt="">
-            <h4>Diana Pertersen</h4>
-            <p class="text-muted">Lead Developer</p>
+            <h4>Asistente2</h4>
+            <p class="text-muted">Secretario</p>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
-          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+          <p class="large text-muted">¡Te esperamos!</p>
         </div>
       </div>
     </div>
@@ -363,8 +370,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Contact Us</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase">Contáctanos</h2>
+          <h3 class="section-subheading text-muted">Deja aquí tu mensaje, te responderemos a la brevedad posible.</h3>
         </div>
       </div>
       <div class="row">
@@ -394,7 +401,7 @@
               <div class="clearfix"></div>
               <div class="col-lg-12 text-center">
                 <div id="success"></div>
-                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Enviar</button>
               </div>
             </div>
           </form>
