@@ -21,7 +21,6 @@
                          <!-- Logo text -->
                         <span class="logo-text">
                              <!-- dark Logo text -->
-                             <h3>{{ Auth::user()->role->name }}</h3>
                             
                         </span>
                         <!-- Logo icon -->

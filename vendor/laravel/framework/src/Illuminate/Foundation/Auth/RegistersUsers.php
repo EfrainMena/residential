@@ -16,11 +16,11 @@ trait RegistersUsers
      *
      * @return \Illuminate\Http\Response
      */
-    public function showRegistrationForm()
-    {
-        $roles = Role::all();
-        return view('auth.register', compact('roles'));
-    }
+    //public function showRegistrationForm()
+   // {
+      //  $roles = Role::all();
+        //return view('auth.register', compact('roles'));
+    //}
 
     /**
      * Handle a registration request for the application.

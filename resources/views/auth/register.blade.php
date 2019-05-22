@@ -81,14 +81,7 @@
                                     </div>
                                     <input type="password" class="form-control form-control-lg" placeholder="Confirmar contraseña" name="password_confirmation" required>
                                 </div>
-                                <div class="input-group-prepend bg-info text-white">
-                                    <span class="input-group-text bg-success text-white" id="basic-addon2"><i class="ti-user"></i></span>
-                                    <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="role_id">
-                                        @foreach($roles as $lista)
-                                            <option value="{{ $lista->id }}">{{ $lista->name }}</option>
-                                         @endforeach
-                                    </select>
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="row border-top border-secondary">
