@@ -14,6 +14,7 @@
         <div class="col-12 d-flex no-block align-items-center">
             <h4 class="page-title">
                 Inicio
+                <button class="btn btn-sm btn-outline-cyan" id="alerta">Prueba</button>
             </h4>
             <div class="ml-auto text-right">
                 <nav aria-label="breadcrumb">

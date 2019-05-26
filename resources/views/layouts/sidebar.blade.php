@@ -159,6 +159,25 @@
     <!-- this page js -->
     <script src="index/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
 
+    <script>
+        $(document).on('click', '#alerta', function(){
+            const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+
+Toast.fire({
+  type: 'success',
+  title: 'Signed in successfully'
+});
+        });
+    </script>
+
+    <!--SweetAlerts en vista-->
+    @include('sweetalert::alert')
+
 </body>
 {{-- https://realrashid.github.io/sweet-alert/helpers?id=autoclose-alert --}}
 

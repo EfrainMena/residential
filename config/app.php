@@ -166,6 +166,8 @@ return [
         Laraveles\Spanish\SpanishServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Caffeinated\Shinobi\ShinobiServiceProvider::class,
+        //SweetAlerts
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -230,6 +232,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        //SweetAlerts-Alias
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 
 
     ],
