@@ -46,7 +46,7 @@
                 
             </h5>
             <div class="table-responsive">
-                <table class="table table-striped table-bordered" id="zero_config">
+                <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th >

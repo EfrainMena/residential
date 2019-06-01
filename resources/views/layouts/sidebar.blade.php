@@ -8,20 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('index/assets/images/favicon.png') }}">
     <title>Administrador</title>
     <!-- Custom CSS -->
     <link href="{{ asset('index/dist/css/style.min.css') }}" rel="stylesheet">
     <!--tables-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('index/assets/extra-libs/multicheck/multicheck.css') }}">
-    <link href="{{ asset('index/dist/css/style.min.css') }}" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <link rel="stylesheet" href="{{ asset('index/DataTables/datatables.min.css') }}">
+    <!--Autocomplete - Style - Themes-->
+    <link rel="stylesheet" href="{{ asset('index/EasyAutocomplete/easy-autocomplete.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('index/EasyAutocomplete/easy-autocomplete.themes.min.css') }}">
 </head>
 
 <body>
@@ -107,13 +105,9 @@
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
@@ -125,7 +119,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+                ResidentialAplication - Project for HellFish Team. All Rights Reserved.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -142,43 +136,22 @@
     <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src="index/assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->S
+    <!-- Bootstrap tether Core JavaScript -->
     <script src="index/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="index/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="index/assets/extra-libs/sparkline/sparkline.js"></script>
     <!--Wave Effects -->
     <script src="index/dist/js/waves.js"></script>
     <!--Menu sidebar -->
     <script src="index/dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="index/dist/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
-    <!-- Charts js Files -->
-    <!--Otro-->
-    <!-- this page js -->
-    <script src="index/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-
-    <script>
-        $(document).on('click', '#alerta', function(){
-            const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 3000
-});
-
-Toast.fire({
-  type: 'success',
-  title: 'Signed in successfully'
-});
-        });
-    </script>
-
+    <!--DataTables JavaScript-->
+    <script src="index/DataTables/datatables.min.js"></script>
+    <!--EasyAutocomplete - js-->
+    <script src="index/EasyAutocomplete/jquery.easy-autocomplete.min.js"></script>
     <!--SweetAlerts en vista-->
     @include('sweetalert::alert')
 
 </body>
-{{-- https://realrashid.github.io/sweet-alert/helpers?id=autoclose-alert --}}
 
 </html>
