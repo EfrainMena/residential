@@ -46,15 +46,15 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Usuarios</span></a></li>
-
                         @can('users.index')
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('users.index')}}" aria-expanded="false"><i class="fas fa-user-plus"></i><span class="hide-menu"> Nuevo Usuario</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('users.index')}}" aria-expanded="false"><i class="fas fa-user-circle"></i><span class="hide-menu">Usuarios</span></a></li>
                         @endcan
 
                         @can('roles.index')
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('roles.index')}}" aria-expanded="false"><i class="fas fa-user-plus"></i><span class="hide-menu"> Roles</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('roles.index')}}" aria-expanded="false"><i class="fas fa-file-alt"></i><span class="hide-menu"> Roles</span></a></li>
                         @endcan
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu"> Clientes</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('countries.index') }}" aria-expanded="false"><i class="fas fa-building"></i><span class="hide-menu"> Paises</span></a></li>
                         
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
@@ -151,7 +151,7 @@
     <script src="index/EasyAutocomplete/jquery.easy-autocomplete.min.js"></script>
     <!--SweetAlerts en vista-->
     @include('sweetalert::alert')
-
+    @yield('countriesScript')
 </body>
 
 </html>

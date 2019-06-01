@@ -1,4 +1,6 @@
 <?php
+//use Symfony\Component\Routing\Route;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +66,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('users/{user}/edit','UserController@edit')->name('users.edit')
 		->middleware('permission:users.edit');
 
-
+	//Paises y estados
+	Route::get('countries', 'CountryController@index')->name('countries.index');
 
 });

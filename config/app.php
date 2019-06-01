@@ -168,6 +168,10 @@ return [
         Caffeinated\Shinobi\ShinobiServiceProvider::class,
         //SweetAlerts
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        //yajra/DataTables
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        //Validacion de letras y espacios
+        App\Providers\CustomValidationRulesProvider::class,
 
         /*
          * Package Service Providers...
@@ -234,6 +238,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         //SweetAlerts-Alias
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        //DataTables-Alias
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
 
     ],
