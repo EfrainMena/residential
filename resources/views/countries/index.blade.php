@@ -53,6 +53,7 @@
                     </thead>
                 </table>
                 @include('countries.modal')
+                @include('countries.addStateModal')
             </div>
         </div>
     </div>
@@ -80,7 +81,7 @@
                 $('#country_form')[0].reset();
                 $('#form_output').html('');
                 $('#button_action').val('insert');
-                $('#action').val('Nuevo');
+                $('#action').val('Crear');
                 $('.modal-title').text('Nuevo Pais');
                 document.getElementById("modalHeader").style.background = "#28b779";
             });
@@ -107,9 +108,9 @@
                         }
                         else
                         {
-                            $('#form_output').html(data.success);
+                            $('#form_output').html('');
                             $('#country_form')[0].reset();
-                            $('#action').val('Nuevo');
+                            $('#action').val('Crear');
                             $('.modal-title').text('Nuevo Pais');
                             $('#button_action').val('insert');
                             document.getElementById("modalHeader").style.background = "#28b779";
@@ -136,6 +137,59 @@
                         $('.modal-title').text('Editar Pais');
                         $('#button_action').val('update');
                         document.getElementById('modalHeader').style.background = "#ffb848";
+                    }
+                })
+            });
+            $(document).on('click', '.add_state', function(){
+                var id = $(this).attr("id");
+                $.ajax({
+                    url: "{{ route('fetchdataforstate.state') }}",
+                    method: "GET",
+                    data:{id:id},
+                    dataType: "json",
+                    success:function(data)
+                    {
+                        $('#country').val(data.name);
+                        $('#country_id').val(id);
+                        $('#stateModal').modal('show');
+                        $('#action_state').val('Agregar');
+                        $('.modal-title').text('Nuevo Departamento');
+                        $('#button_action_state').val('insert');
+                        document.getElementById('modalHeader').style.background = "#ffb848";
+                    }
+                })
+            });
+            $('#state_form').on('submit', function(event){
+                event.preventDefault();
+                var form_data = $(this).serialize();
+                $.ajax({
+                    url: "{{ route('postdataforstate.state') }}",
+                    method: "POST",
+                    data: form_data,
+                    dataType: "json",
+                    success:function(data)
+                    {
+                        if(data.error.length > 0)
+                        {
+                            var error_html = '';
+                            for(var count = 0; count < data.error.length; count++)
+                            {
+                                error_html += '<ul class="alert alert-danger"><li>'+data.error[count]+'</li></ul>';
+                            }
+                            $('#form_output').html(error_html);
+                            toastr_error();
+                        }
+                        else
+                        {
+                            $('#form_output').html('');
+                            $('#state_form')[0].reset();
+                            $('#action_state').val('Agregar');
+                            $('.modal-title').text('Nuevo Departamento');
+                            $('#button_action').val('insert');
+                            document.getElementById("modalHeader").style.background = "#28b779";
+                            $('#country_table').DataTable().ajax.reload();
+                            toastr_success();
+                        }
                     }
                 })
             });

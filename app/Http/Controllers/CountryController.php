@@ -8,6 +8,7 @@ use DataTables;
 use Validator;
 use Illuminate\Validation\Rule;
 use App\Country;
+use App\State;
 
 class CountryController extends Controller
 {
@@ -22,7 +23,9 @@ class CountryController extends Controller
         //$countries = Country::select('name', 'nationality');
         return DataTables::of($countries)
             ->addColumn('action', function($country){
-                return '<button class="btn btn-xs btn-outline-warning edit" id="'.$country->id.'"><i class="fas fa-edit"></i></button> <button class="btn btn-xs btn-outline-danger delete" id="'.$country->id.'"><i class="fas fa-trash"></i></button>';
+                return '<button class="btn btn-sm btn-outline-warning edit" id="'.$country->id.'"><i class="fas fa-edit"></i></button> 
+                        <button class="btn btn-sm btn-outline-danger delete" id="'.$country->id.'"><i class="fas fa-trash"></i></button>
+                        <a class="btn btn-sm btn-outline-success add_state" id="'.$country->id.'"><i class="fas fa-plus">Departamento</i></a>';
             })
             ->toJson();
     }
@@ -91,6 +94,48 @@ class CountryController extends Controller
         $output = array(
             'name' => $country->name,
             'nationality' => $country->nationality
+        );
+        echo json_encode($output);
+    }
+
+    public function fetchDataForState(Request $request)
+    {
+        $id = $request->input('id');
+        $country = Country::find($id);
+        $output = array(
+            'name' => $country->name,
+        );
+        echo json_encode($output);
+    }
+    public function postDataForState(Request $request)
+    {
+        if($request->get('button_action_state') == 'insert')
+        {
+            $validation = Validator::make($request->all(), [
+                'name' => 'alpha_spaces|unique:states',
+                'country_id' => 'integer',
+            ]);
+
+            $error_array = array();
+            $success_output = '';
+            if($validation->fails())
+            {
+                foreach($validation->messages()->getMessages() as $messages)
+                {
+                    $error_array[] = $messages;
+                }
+            }
+            else
+            {
+                $state = new State($request->all());
+                $state->save();
+                $success_output;
+            }
+        }
+
+        $output = array(
+            'error'     => $error_array,
+            'success'   => $success_output
         );
         echo json_encode($output);
     }

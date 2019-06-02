@@ -71,5 +71,8 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('getdata/countries', 'CountryController@getData')->name('getdata.countries');
 	Route::post('postdata/countries', 'CountryController@postData')->name('postdata.countries');
 	Route::get('fetchdata/countries', 'CountryController@fetchData')->name('fetchdata.countries');
+	//departamentos
+	Route::get('fetchdataforstate/state', 'CountryController@fetchDataForState')->name('fetchdataforstate.state');
+	Route::post('postdataforstate/state', 'CountryController@postDataForState')->name('postdataforstate.state');
 
 });

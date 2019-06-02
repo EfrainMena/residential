@@ -22,7 +22,7 @@
                 <div class="modal-footer">
                     <input type="hidden" name="id" id="id" value="">
                   <input type="hidden" name="button_action" id="button_action" value="insert">
-                  <input type="submit" name="submit" id="action" value="Hecho" class="btn btn-primary">
+                  <input type="submit" name="submit" id="action" class="btn btn-cyan">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
             </form>
