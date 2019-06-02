@@ -16,7 +16,7 @@
     <!-- Custom CSS -->
     <link href="{{ asset('index/dist/css/style.min.css') }}" rel="stylesheet">
     <!--tables-->
-    <link rel="stylesheet" href="{{ asset('index/DataTables/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('index/DataTables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
     <!--Autocomplete - Style - Themes-->
     <link rel="stylesheet" href="{{ asset('index/EasyAutocomplete/easy-autocomplete.min.css') }}">
     <link rel="stylesheet" href="{{ asset('index/EasyAutocomplete/easy-autocomplete.themes.min.css') }}">
@@ -119,7 +119,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                ResidentialAplication - Project for HellFish Team. All Rights Reserved.
+                ResidentialAplication - Project made by The HellFish Team. All Rights Reserved.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -147,8 +147,43 @@
     <script src="index/dist/js/custom.min.js"></script>
     <!--DataTables JavaScript-->
     <script src="index/DataTables/datatables.min.js"></script>
+    <script src="index/DataTables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <!--EasyAutocomplete - js-->
     <script src="index/EasyAutocomplete/jquery.easy-autocomplete.min.js"></script>
+    <!--Alertas toastr-->
+    <script>
+        function toastr_error()
+        {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+            Toast.fire({
+                type: 'error',
+                //title: 'Revisa el formulario',
+                title: 'Algo salió mal'
+            });
+        return toastr_error;
+        }
+
+        function toastr_success() 
+        {
+            const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+            });
+
+            Toast.fire({
+            type: 'success',
+            title: 'Operacion Exitosa'
+            });
+        return toastr_success;
+        }
+    </script>
     <!--SweetAlerts en vista-->
     @include('sweetalert::alert')
     @yield('countriesScript')

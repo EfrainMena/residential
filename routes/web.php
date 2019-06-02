@@ -68,5 +68,8 @@ Route::middleware(['auth'])->group(function(){
 
 	//Paises y estados
 	Route::get('countries', 'CountryController@index')->name('countries.index');
+	Route::get('getdata/countries', 'CountryController@getData')->name('getdata.countries');
+	Route::post('postdata/countries', 'CountryController@postData')->name('postdata.countries');
+	Route::get('fetchdata/countries', 'CountryController@fetchData')->name('fetchdata.countries');
 
 });
