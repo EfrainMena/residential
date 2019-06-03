@@ -74,8 +74,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <input type="text" name="origin_country" id="origin_country" value="">
-            <input type="text" name="user_id" value="{{ Auth::user()->id }}" value="" id="user_id">
+            <input type="hidden" name="origin_country" id="origin_country" value="">
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" value="" id="user_id">
             <input type="hidden" name="id" id="id" value="">
             <input type="hidden" name="button_action" id="button_action" value="insert">
             <input type="submit" name="submit" id="action" class="btn btn-cyan">
