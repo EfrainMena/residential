@@ -23,7 +23,7 @@ class CreateClientsTable extends Migration
             $table->string('civil_state', 20);
             $table->string('origin_country', 20);
             $table->string('origin_departament', 20);
-            $table->string('nacionality', 20);
+            $table->string('nationality', 20);
             $table->boolean('active')->default(1);
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

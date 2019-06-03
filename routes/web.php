@@ -75,4 +75,13 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('fetchdataforstate/state', 'CountryController@fetchDataForState')->name('fetchdataforstate.state');
 	Route::post('postdataforstate/state', 'CountryController@postDataForState')->name('postdataforstate.state');
 
+	//listasDependientes
+	Route::get('/departaments', 'ClientController@getDepartaments');
+	Route::get('/country', 'ClientController@getCountry');
+
+	//clientes
+	Route::get('clients', 'ClientController@index')->name('clients.index');
+	Route::get('clients/getdata', 'ClientController@getData')->name('clients.getdata');
+	Route::post('postdata/clients', 'ClientController@postData')->name('postdata.clients');
+
 });

@@ -31,13 +31,13 @@
         <div class="card-body">
             <h5 class="card-title">
                 Paises
-                <a class="btn btn-outline-success float-right card-title" id="add_country">Nuevo</a>
+                <a class="btn btn-outline-success float-right card-title" id="add_country"><i class="fas fa-plus"> Pais</i></a>
             </h5>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered" id="country_table">
                     <thead>
                         <tr>
-                            <th>
+                            <th style="width:40px;">
                                 ID
                             </th>
                             <th>
@@ -46,7 +46,7 @@
                             <th>
                                 Nacionalidad
                             </th>
-                            <th>
+                            <th style="width:21%;">
                                 Acciones
                             </th>
                         </tr>
@@ -61,6 +61,7 @@
 @endsection
 @section('countriesScript')
     <script>
+        //llenado de Tablas con datos de paises
         $(document).ready(function(){
             $('#country_table').DataTable({
                 "processing": true,
@@ -76,6 +77,7 @@
                     'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
                 }
             });
+            //accion de abrir modal
             $('#add_country').click(function(){
                 $('#countryModal').modal('show');
                 $('#country_form')[0].reset();
@@ -85,7 +87,7 @@
                 $('.modal-title').text('Nuevo Pais');
                 document.getElementById("modalHeader").style.background = "#28b779";
             });
-
+            //accion de enviar formulario
             $('#country_form').on('submit', function(event){
                 event.preventDefault();
                 var form_data = $(this).serialize();
@@ -120,6 +122,7 @@
                     }
                 })
             });
+            //accion de click en el boton de editar
             $(document).on('click', '.edit', function(){
                 var id = $(this).attr("id");
                 $.ajax({
@@ -140,6 +143,7 @@
                     }
                 })
             });
+            //agregar departamentos
             $(document).on('click', '.add_state', function(){
                 var id = $(this).attr("id");
                 $.ajax({
@@ -155,10 +159,11 @@
                         $('#action_state').val('Agregar');
                         $('.modal-title').text('Nuevo Departamento');
                         $('#button_action_state').val('insert');
-                        document.getElementById('modalHeader').style.background = "#ffb848";
+                        document.getElementById('modalHeaderState').style.background = "#28b779";
                     }
                 })
             });
+            //envio del formulario de departamentos
             $('#state_form').on('submit', function(event){
                 event.preventDefault();
                 var form_data = $(this).serialize();
@@ -169,9 +174,9 @@
                     dataType: "json",
                     success:function(data)
                     {
-                        if(data.error.length > 0)
+                        if(data.error.length > 0) 
                         {
-                            var error_html = '';
+                            var error_html = ''; //se muestran los errores
                             for(var count = 0; count < data.error.length; count++)
                             {
                                 error_html += '<ul class="alert alert-danger"><li>'+data.error[count]+'</li></ul>';
@@ -179,14 +184,14 @@
                             $('#form_output').html(error_html);
                             toastr_error();
                         }
-                        else
+                        else //cuando no esxiste errores
                         {
                             $('#form_output').html('');
                             $('#state_form')[0].reset();
                             $('#action_state').val('Agregar');
                             $('.modal-title').text('Nuevo Departamento');
                             $('#button_action').val('insert');
-                            document.getElementById("modalHeader").style.background = "#28b779";
+                            document.getElementById("modalHeaderState").style.background = "#28b779";
                             $('#country_table').DataTable().ajax.reload();
                             toastr_success();
                         }

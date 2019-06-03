@@ -2,14 +2,14 @@
 <html dir="ltr" lang="en">
 
 <head>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('index/assets/images/favicon.png') }}">
     <title>Administrador</title>
@@ -53,8 +53,8 @@
                         @can('roles.index')
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('roles.index')}}" aria-expanded="false"><i class="fas fa-file-alt"></i><span class="hide-menu"> Roles</span></a></li>
                         @endcan
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu"> Clientes</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('countries.index') }}" aria-expanded="false"><i class="fas fa-building"></i><span class="hide-menu"> Paises</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('clients.index') }}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu"> Clientes</span></a></li>
                         
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
@@ -150,6 +150,10 @@
     <script src="index/DataTables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <!--EasyAutocomplete - js-->
     <script src="index/EasyAutocomplete/jquery.easy-autocomplete.min.js"></script>
+    @yield('countriesScript')
+    @yield('clientsScript')
+    <!--SweetAlerts en vista-->
+    @include('sweetalert::alert')
     <!--Alertas toastr-->
     <script>
         function toastr_error()
@@ -184,9 +188,10 @@
         return toastr_success;
         }
     </script>
-    <!--SweetAlerts en vista-->
-    @include('sweetalert::alert')
-    @yield('countriesScript')
+    <script>
+        function baseUrl(url) {
+            return '{{ url('') }}/' + url;
+        }
+    </script>
 </body>
-
 </html>

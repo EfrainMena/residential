@@ -12,11 +12,12 @@ use App\State;
 
 class CountryController extends Controller
 {
-    //
+    //vista principal
     public function index()
     {
         return view('countries.index');
     }
+    //se envian los datos con formato hecho por yajra
     public function getData()
     {
         $countries = Country::all();
@@ -29,9 +30,10 @@ class CountryController extends Controller
             })
             ->toJson();
     }
+    //al enviar el formulario de nuevo pais
     public function postData(Request $request)
     {
-        if($request->get('button_action') == 'insert')
+        if($request->get('button_action') == 'insert')//es nuevo registro?
         {
             $validation = Validator::make($request->all(), [
                 'name' => 'alpha_spaces|unique:countries',
@@ -40,7 +42,7 @@ class CountryController extends Controller
 
             $error_array = array();
             $success_output = '';
-            if($validation->fails())
+            if($validation->fails()) //no pasa la validacion?
             {
                 foreach($validation->messages()->getMessages() as $messages)
                 {
@@ -54,7 +56,7 @@ class CountryController extends Controller
                 $success_output;
             }
         }
-        elseif($request->get('button_action') == 'update')
+        elseif($request->get('button_action') == 'update') //se actualiza un pais?
         {
             $validation = Validator::make($request->all(), [
                 'name' => ['alpha_spaces', Rule::unique('countries')->ignore($request->get('id'))],
@@ -86,7 +88,7 @@ class CountryController extends Controller
         );
         echo json_encode($output);
     }
-
+    //se recuperan datos pais
     public function fetchData(Request $request)
     {
         $id = $request->input('id');
@@ -97,7 +99,7 @@ class CountryController extends Controller
         );
         echo json_encode($output);
     }
-
+    //se recuperan datos de departamentos
     public function fetchDataForState(Request $request)
     {
         $id = $request->input('id');
@@ -107,6 +109,7 @@ class CountryController extends Controller
         );
         echo json_encode($output);
     }
+    //se envia el formulario de departamentos
     public function postDataForState(Request $request)
     {
         if($request->get('button_action_state') == 'insert')
