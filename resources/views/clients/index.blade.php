@@ -94,7 +94,7 @@
                 event.preventDefault();
                 var form_data = $(this).serialize();
                 $.ajax({
-                    url: "{{ route('postdata.clients') }}",
+                    url: "{{ route('clients.postdata') }}",
                     method: "POST",
                     data: form_data,
                     dataType: "json",
@@ -123,6 +123,59 @@
                         }
                     }
                 })
+            });
+            $(document).on('click', '.edit', function(){
+                var id = $(this).attr("id");
+                $.ajax({
+                    url: "{{ route('clients.fetchdata') }}",
+                    method: "GET",
+                    data:{id:id},
+                    dataType: "json",
+                    success:function(data)
+                    {
+                        $('#document').val(data.document);
+                        $('#name').val(data.name);
+                        $('#surnames').val(data.surnames);
+                        $('#birthdate').val(data.birthdate);
+                        $('#profession').val(data.profession);
+                        $('#id').val(id);
+                        $('#clientModal').modal('show');
+                        $('#action').val('Modificar');
+                        $('.modal-title').text('Editar Cliente');
+                        $('#button_action').val('update');
+                        document.getElementById('modalHeader').style.background = "#ffb848";
+                    }
+                })
+            });
+            $(document).on('click', '.delete', function(){
+                var id = $(this).attr('id');
+                Swal.fire({
+                  title: '¿Vas a eliminar esto?',
+                  text: "Puedes revertir el cambio.",
+                  type: 'question',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Sí, Borrar esto!',
+                  cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                  if (result.value) {
+                    $.ajax({
+                    url:"{{ route('clients.deletedata') }}",
+                    method:"GET",
+                    data:{id:id},
+                    success:function(data)
+                    {
+                        Swal.fire(
+                          'Borrado!',
+                          'Elinacion exitosa.',
+                          'success'
+                        );
+                        $('#client_table').DataTable().ajax.reload();
+                    }
+                    })
+                  }
+                });
             });
         });
     </script>

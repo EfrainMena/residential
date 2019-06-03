@@ -39,6 +39,7 @@
               <div class="col-lg-4">
                   <label for="piece">Estado Civil</label>
                   <select name="civil_state" id="" class="form-control" required>
+                    <option value="">Selecciona una opcion</option>
                     <option value="Soltero">Soltero</option>
                     <option value="Casado">Casado</option>
                     <option value="Viudo">Viudo</option>

@@ -82,6 +82,8 @@ Route::middleware(['auth'])->group(function(){
 	//clientes
 	Route::get('clients', 'ClientController@index')->name('clients.index');
 	Route::get('clients/getdata', 'ClientController@getData')->name('clients.getdata');
-	Route::post('postdata/clients', 'ClientController@postData')->name('postdata.clients');
+	Route::post('clients/postdata', 'ClientController@postData')->name('clients.postdata');
+	Route::get('clients/fetchdata', 'ClientController@fetchData')->name('clients.fetchdata');
+	Route::get('clients/deletedata', 'ClientController@deleteData')->name('clients.deletedata');
 
 });
