@@ -7,7 +7,7 @@
         </div>
         <form method="POST" id="obs_form">
               {{csrf_field()}}
-              <span id="form_output"></span>
+              <span id="form_output_obs"></span>
             <div class="modal-body">
                   <div class="alert alert-danger">
                       <label>Observacion para: </label>
@@ -19,14 +19,14 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label>Fecha</label>
-                            <input class="form-control" type="date" name="date" id="date">
+                            <input class="form-control" type="date" name="date" id="date" required>
                         </div>
                     </div>
                   </div>
 
                   <div class="form-group">
                       <label>Descripcion</label>
-                      <textarea class="form-control" name="description" id="description" cols="30" rows="7" maxlength="200" placeholder="Maximo 200 caracteres"></textarea>
+                      <textarea class="form-control" name="description" id="description" cols="30" rows="7" maxlength="200" placeholder="Maximo 200 caracteres" required></textarea>
                   </div>
             </div>
             <div class="modal-footer">

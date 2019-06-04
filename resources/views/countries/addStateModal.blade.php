@@ -7,7 +7,7 @@
       </div>
       <form method="POST" id="state_form">
             {{csrf_field()}}
-            <span id="form_output"></span>
+            <span id="form_output_state"></span>
           <div class="modal-body">
                 <div class="form-group">
                     <label>Pais</label>

@@ -188,6 +188,7 @@
                     dataType: "json",
                     success:function(data)
                     {
+                        $('#form_output_obs').html('');
                         $('#nameObs').text(data.name);
                         $('#surnamesObs').text(data.surnames);
                         $('#client_id').val(id);
@@ -212,17 +213,17 @@
                     {
                         if(data.error.length > 0) 
                         {
-                            var error_html = ''; //se muestran los errores
+                            var error_html = '';
                             for(var count = 0; count < data.error.length; count++)
                             {
                                 error_html += '<ul class="alert alert-danger"><li>'+data.error[count]+'</li></ul>';
                             }
-                            $('#form_output').html(error_html);
+                            $('#form_output_obs').html(error_html);
                             toastr_error();
                         }
                         else //cuando no esxiste errores
                         {
-                            $('#form_output').html('');
+                            $('#form_output_obs').html('');
                             $('#action_obs').val('Agregar');
                             $('.modal-title').text('Nueva Observacion');
                             $('#button_action_obs').val('insert');

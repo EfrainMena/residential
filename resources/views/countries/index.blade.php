@@ -132,6 +132,7 @@
                     dataType: "json",
                     success:function(data)
                     {
+                        $('#form_output').html('');
                         $('#name').val(data.name);
                         $('#nationality').val(data.nationality);
                         $('#id').val(id);
@@ -153,6 +154,8 @@
                     dataType: "json",
                     success:function(data)
                     {
+                        $('#form_output_state').html('');
+                        $('#nameDep').val('');
                         $('#country').val(data.name);
                         $('#country_id').val(id);
                         $('#stateModal').modal('show');
@@ -181,12 +184,12 @@
                             {
                                 error_html += '<ul class="alert alert-danger"><li>'+data.error[count]+'</li></ul>';
                             }
-                            $('#form_output').html(error_html);
+                            $('#form_output_state').html(error_html);
                             toastr_error();
                         }
                         else //cuando no esxiste errores
                         {
-                            $('#form_output').html('');
+                            $('#form_output_state').html('');
                             $('#action_state').val('Agregar');
                             $('.modal-title').text('Nuevo Departamento');
                             $('#button_action').val('insert');
