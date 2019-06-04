@@ -156,6 +156,7 @@
     @include('sweetalert::alert')
     <!--Alertas toastr-->
     <script>
+        //Mostrar ToastrError
         function toastr_error()
         {
             const Toast = Swal.mixin({
@@ -171,7 +172,7 @@
             });
         return toastr_error;
         }
-
+        //Mostrar ToastrSuccess
         function toastr_success() 
         {
             const Toast = Swal.mixin({
@@ -183,9 +184,54 @@
 
             Toast.fire({
             type: 'success',
-            title: 'Operacion Exitosa'
+            title: '¡Operación Exitosa!'
             });
         return toastr_success;
+        }
+        function toastr_info() 
+        {
+            const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+            });
+
+            Toast.fire({
+            type: 'info',
+            title: 'Operación ejecutada'
+            });
+        return toastr_info;
+        }
+        function toastr_warning() 
+        {
+            const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000
+            });
+
+            Toast.fire({
+            type: 'warning',
+            title: 'Acción importante'
+            });
+        return toastr_warning;
+        }
+        function toastr_question() 
+        {
+            const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+            });
+
+            Toast.fire({
+            type: 'question',
+            title: '¿Estás segur@?'
+            });
+        return toastr_question;
         }
     </script>
     <script>

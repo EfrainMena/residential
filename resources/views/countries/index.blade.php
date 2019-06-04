@@ -187,12 +187,11 @@
                         else //cuando no esxiste errores
                         {
                             $('#form_output').html('');
-                            $('#state_form')[0].reset();
                             $('#action_state').val('Agregar');
                             $('.modal-title').text('Nuevo Departamento');
                             $('#button_action').val('insert');
+                            $('#nameDep').val('');
                             document.getElementById("modalHeaderState").style.background = "#28b779";
-                            $('#country_table').DataTable().ajax.reload();
                             toastr_success();
                         }
                     }

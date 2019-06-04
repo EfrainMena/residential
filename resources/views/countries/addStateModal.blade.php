@@ -16,7 +16,7 @@
 
                 <div class="form-group">
                     <label>Departamento</label>
-                    <input type="text" name="name"  class="form-control">
+                    <input type="text" name="name" id="nameDep" class="form-control">
                 </div>
           </div>
           <div class="modal-footer">

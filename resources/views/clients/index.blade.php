@@ -56,10 +56,10 @@
                     </thead>
                 </table>
                 @include('clients.modal')
+                @include('clients.obsModal')
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection
 @section('clientsScript')
@@ -80,6 +80,7 @@
                     'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
                 }
             });
+            //abrir el modal
             $('#add_client').click(function(){
                 $('#clientModal').modal('show');
                 $('#client_form')[0].reset();
@@ -150,9 +151,9 @@
             $(document).on('click', '.delete', function(){
                 var id = $(this).attr('id');
                 Swal.fire({
-                  title: '¿Vas a eliminar esto?',
+                  title: 'Estas por borrar este cliente',
                   text: "Puedes revertir el cambio.",
-                  type: 'question',
+                  type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
@@ -164,18 +165,73 @@
                     url:"{{ route('clients.deletedata') }}",
                     method:"GET",
                     data:{id:id},
-                    success:function(data)
-                    {
-                        Swal.fire(
-                          'Borrado!',
-                          'Elinacion exitosa.',
-                          'success'
-                        );
-                        $('#client_table').DataTable().ajax.reload();
-                    }
+                        success:function(data)
+                        {
+                            Swal.fire(
+                            'Borrado!',
+                            'Elinacion exitosa.',
+                            'success'
+                            );
+                            $('#client_table').DataTable().ajax.reload();
+                        }
                     })
                   }
                 });
+            });
+
+            $(document).on('click', '.add_obs', function(){
+                var id = $(this).attr("id");
+                $.ajax({
+                    url: "{{ route('clients.fetchdataforobs') }}",
+                    method: "GET",
+                    data:{id:id},
+                    dataType: "json",
+                    success:function(data)
+                    {
+                        $('#nameObs').text(data.name);
+                        $('#surnamesObs').text(data.surnames);
+                        $('#client_id').val(id);
+                        $('#obsModal').modal('show');
+                        $('#action_obs').val('Agregar');
+                        $('.modal-title').text('Nueva Observacion');
+                        $('#button_action_obs').val('insert');
+                        document.getElementById('modalHeaderState').style.background = "#da542e";
+                        toastr_warning();
+                    }
+                })
+            });
+            $('#obs_form').on('submit', function(event){
+                event.preventDefault();
+                var form_data = $(this).serialize();
+                $.ajax({
+                    url: "{{ route('clients.postdataforobs') }}",
+                    method: "POST",
+                    data: form_data,
+                    dataType: "json",
+                    success:function(data)
+                    {
+                        if(data.error.length > 0) 
+                        {
+                            var error_html = ''; //se muestran los errores
+                            for(var count = 0; count < data.error.length; count++)
+                            {
+                                error_html += '<ul class="alert alert-danger"><li>'+data.error[count]+'</li></ul>';
+                            }
+                            $('#form_output').html(error_html);
+                            toastr_error();
+                        }
+                        else //cuando no esxiste errores
+                        {
+                            $('#form_output').html('');
+                            $('#action_obs').val('Agregar');
+                            $('.modal-title').text('Nueva Observacion');
+                            $('#button_action_obs').val('insert');
+                            $('#description').val('');
+                            document.getElementById("modalHeaderState").style.background = "#da542e";
+                            toastr_info();
+                        }
+                    }
+                })
             });
         });
     </script>
@@ -199,7 +255,7 @@
                         });
                     });
                 }
-            });
+            });   
         });
     </script>
 @endsection

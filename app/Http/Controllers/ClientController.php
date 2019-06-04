@@ -10,6 +10,7 @@ use Validator;
 use App\Client;
 use App\Country;
 use App\State;
+use App\Observation;
 
 class ClientController extends Controller
 {
@@ -154,5 +155,49 @@ class ClientController extends Controller
     function deleteData(Request $request)
     {
         Client::find($request->input('id'))->update(['active' => 0]);
+    }
+    //obtener datos para nueva observacion
+    public function fetchDataForObservation(Request $request)
+    {
+        $id = $request->input('id');
+        $client = Client::find($id);
+        $output = array(
+            'name' => $client->name,
+            'surnames' => $client->surnames,
+        );
+        echo json_encode($output);
+    }
+    //crear Observacion
+    public function postDataForObservation(Request $request)
+    {
+        if($request->get('button_action_obs') == 'insert')
+        {
+            $validation = Validator::make($request->all(), [
+                'date' => 'date',
+                'description' => 'string',
+            ]);
+
+            $error_array = array();
+            $success_output = '';
+            if($validation->fails())
+            {
+                foreach($validation->messages()->getMessages() as $messages)
+                {
+                    $error_array[] = $messages;
+                }
+            }
+            else
+            {
+                $observation = new Observation($request->all());
+                $observation->save();
+                $success_output;
+            }
+        }
+
+        $output = array(
+            'error'     => $error_array,
+            'success'   => $success_output
+        );
+        echo json_encode($output);
     }
 }

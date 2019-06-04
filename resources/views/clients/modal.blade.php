@@ -72,6 +72,7 @@
                         <option value="{{ $data->nationality }}">{{ $data->nationality }}</option>
                       @endforeach
                 </select>
+              </div>
             </div>
           </div>
           <div class="modal-footer">
