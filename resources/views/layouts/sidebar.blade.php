@@ -55,6 +55,7 @@
                         @endcan
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('countries.index') }}" aria-expanded="false"><i class="fas fa-building"></i><span class="hide-menu"> Paises</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('clients.index') }}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu"> Clientes</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('rooms.index') }}" aria-expanded="false"><i class="fas fa-bed"></i><span class="hide-menu"> Habitaciones</span></a></li>
                         
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
@@ -128,10 +129,6 @@
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
@@ -152,6 +149,7 @@
     <script src="index/EasyAutocomplete/jquery.easy-autocomplete.min.js"></script>
     @yield('countriesScript')
     @yield('clientsScript')
+    @yield('roomsScript')
     <!--SweetAlerts en vista-->
     @include('sweetalert::alert')
     <!--Alertas toastr-->

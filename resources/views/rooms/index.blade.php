@@ -4,20 +4,13 @@
     <div class="row">
         <div class="col-12 d-flex no-block align-items-center">
             <h4 class="page-title">
-                Inicio
+                Categorias
             </h4>
             <div class="ml-auto text-right">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="#">
-                                Inicio
-                            </a>
-                        </li>
-                        <li aria-current="page" class="breadcrumb-item active">
-                            
-                        </li>
-                    </ol>
+                    <a class="btn btn-md btn-outline-success" id="add_category"><i class="fas fa-plus">
+                         Categoría
+                    </i></a>
                 </nav>
             </div>
         </div>
@@ -38,7 +31,7 @@
                     </h5>
                 </div>
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered" style="width:100%" id="client_table">
+                        <table class="table table-striped table-bordered" style="width:100%" id="rooms_table">
                             <thead>
                                 <tr>
                                     <th>
@@ -59,8 +52,8 @@
                                 </tr>
                             </thead>
                         </table>
-                        @include('clients.modal')
-                        @include('clients.obsModal')
+                        @include('rooms.modal')
+                        @include('rooms.categoryModal')
                     </div>
             </div>
         </div>
@@ -68,10 +61,10 @@
 </div>
     
 @endsection
-@section('clientsScript')
+@section('roomsScript')
     <script>
         $(document).ready(function(){
-            $('#client_table').DataTable({
+            $('#rooms_table').DataTable({
                 "processing": true,
                 "serverSide": true,
                 "ajax": "{{ route('clients.getdata') }}",
@@ -185,27 +178,14 @@
                 });
             });
 
-            $(document).on('click', '.add_obs', function(){
-                var id = $(this).attr("id");
-                $.ajax({
-                    url: "{{ route('clients.fetchdataforobs') }}",
-                    method: "GET",
-                    data:{id:id},
-                    dataType: "json",
-                    success:function(data)
-                    {
-                        $('#form_output_obs').html('');
-                        $('#nameObs').text(data.name);
-                        $('#surnamesObs').text(data.surnames);
-                        $('#client_id').val(id);
-                        $('#obsModal').modal('show');
-                        $('#action_obs').val('Agregar');
-                        $('.modal-title').text('Nueva Observacion');
-                        $('#button_action_obs').val('insert');
-                        document.getElementById('modalHeaderState').style.background = "#da542e";
-                        toastr_warning();
-                    }
-                })
+            $('#add_category').click(function(){
+                $('#categoryModal').modal('show');
+                $('#category_form')[0].reset();
+                $('#form_output').html('');
+                $('#button_action').val('insert');
+                $('#action').val('Agregar');
+                $('.modal-title').text('Nueva categoría');
+                document.getElementById("modalHeaderCategory").style.background = "#28b779";
             });
             $('#obs_form').on('submit', function(event){
                 event.preventDefault();

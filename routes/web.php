@@ -89,4 +89,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('clients/fetchdataforobs', 'ClientController@fetchDataForObservation')->name('clients.fetchdataforobs');
 	Route::post('clients/postdataforobs', 'ClientController@postDataForObservation')->name('clients.postdataforobs');
 
+	//habitaciones
+	Route::get('rooms', 'RoomController@index')->name('rooms.index');
+
 });

@@ -15,14 +15,14 @@ class CreateRoomsTable extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('room_number');
-            $table->integer('floor');
-            $table->float('price', 5, 2);
-            $table->string('description', 100);
+            $table->integer('number');
+            $table->integer('level');
             $table->string('status', 20);
             $table->boolean('active')->default(1);
             $table->unsignedInteger('category_id');
+            $table->unsignedInteger('price_id');
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('price_id')->references('id')->on('prices');
             $table->timestamps();
         });
     }
