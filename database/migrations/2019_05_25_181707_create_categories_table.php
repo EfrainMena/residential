@@ -17,6 +17,8 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name', 100);
             $table->string('characteristics', 100);
+            $table->float('regular_price', 5, 2);
+            $table->float('weekend_price', 5, 2);
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

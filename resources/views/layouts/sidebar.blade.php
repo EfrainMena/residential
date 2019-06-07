@@ -134,7 +134,9 @@
     <!-- ============================================================== -->
     <script src="index/assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
+    <script src="index/assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="index/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
     <script src="index/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <!--Wave Effects -->
     <script src="index/dist/js/waves.js"></script>

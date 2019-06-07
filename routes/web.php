@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::resource('usuarios', 'UsersController');
 //Route::resource('roles', 'RolesController');
-Route::resource('rooms','RoomController');
+//Route::resource('rooms','RoomController');
 
 Route::middleware(['auth'])->group(function(){
 
@@ -91,5 +91,10 @@ Route::middleware(['auth'])->group(function(){
 
 	//habitaciones
 	Route::get('rooms', 'RoomController@index')->name('rooms.index');
+	Route::get('rooms/getdata', 'RoomController@getData')->name('rooms.getdata');
+	Route::post('rooms/postdata', 'RoomController@postData')->name('rooms.postdata');
+
+	//categorias
+	Route::post('categories/postdata', 'CategoryController@postData')->name('categories.postdata');
 
 });

@@ -2,18 +2,25 @@
 @section('contenido')
 <div class="page-breadcrumb">
     <div class="row">
+
         <div class="col-12 d-flex no-block align-items-center">
             <h4 class="page-title">
                 Categorias
             </h4>
             <div class="ml-auto text-right">
                 <nav aria-label="breadcrumb">
-                    <a class="btn btn-md btn-outline-success" id="add_category"><i class="fas fa-plus">
-                         Categoría
-                    </i></a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías</button>
+                        <div class="dropdown-menu alert-dark" >
+                          <a class="btn dropdown-item" id="add_category">Nueva categoría</a>
+                          <a class="btn dropdown-item" href="#">Ver categorías</a>
+                          <a class="btn dropdown-item" href="#">Editar categoría</a>
+                        </div>
+                    </div>
                 </nav>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -26,25 +33,28 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title m-b-0">
-                        Clientes
-                        <a class="btn btn-outline-success float-right card-title" id="add_client"><i class="fas fa-plus"> Cliente</i></a>
+                        Habitaciones
+                        <a class="btn btn-outline-success float-right card-title" id="add_room"><i class="fas fa-plus"> Habitación</i></a>
                     </h5>
                 </div>
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered" style="width:100%" id="rooms_table">
+                        <table class="table table-striped table-bordered" style="width:100%" id="room_table">
                             <thead>
                                 <tr>
                                     <th>
-                                        Documento
+                                        Nº Habitacion
                                     </th>
                                     <th>
-                                        Nombre
+                                        Nº Piso
                                     </th>
                                     <th>
-                                        Apellidos
+                                        Caracteristicas
                                     </th>
                                     <th>
-                                        Nacionalidad
+                                        Precio regular (Bs.)
+                                    </th>
+                                    <th>
+                                        Precio Fin Semana (Bs.)
                                     </th>
                                     <th>
                                         Acciones
@@ -64,15 +74,16 @@
 @section('roomsScript')
     <script>
         $(document).ready(function(){
-            $('#rooms_table').DataTable({
+            $('#room_table').DataTable({
                 "processing": true,
                 "serverSide": true,
-                "ajax": "{{ route('clients.getdata') }}",
+                "ajax": "{{ route('rooms.getdata') }}",
                 "columns": [
-                    {"data": "document"},
-                    {"data": "name"},
-                    {"data": "surnames"},
-                    {"data": "nationality"},
+                    {"data": "number"},
+                    {"data": "level"},
+                    {"data": "category.characteristics"},
+                    {"data": "category.regular_price"},
+                    {"data": "category.weekend_price"},
                     {"data": "action", ordenable:false, searchable:false}
                 ],
                 "language": {
@@ -80,21 +91,21 @@
                 }
             });
             //abrir el modal
-            $('#add_client').click(function(){
-                $('#clientModal').modal('show');
-                $('#client_form')[0].reset();
+            $('#add_room').click(function(){
+                $('#roomModal').modal('show');
+                $('#room_form')[0].reset();
                 $('#form_output').html('');
                 $('#button_action').val('insert');
                 $('#action').val('Agregar');
-                $('.modal-title').text('Nuevo Cliente');
+                $('.modal-title').text('Nueva Habitación');
                 document.getElementById("modalHeader").style.background = "#28b779";
             });
 
-            $('#client_form').on('submit', function(event){
+            $('#room_form').on('submit', function(event){
                 event.preventDefault();
                 var form_data = $(this).serialize();
                 $.ajax({
-                    url: "{{ route('clients.postdata') }}",
+                    url: "{{ route('rooms.postdata') }}",
                     method: "POST",
                     data: form_data,
                     dataType: "json",
@@ -113,85 +124,32 @@
                         else
                         {
                             $('#form_output').html('');
-                            $('#client_form')[0].reset();
+                            $('#room_form')[0].reset();
                             $('#action').val('Crear');
-                            $('.modal-title').text('Nuevo Cliente');
+                            $('.modal-title').text('Nueva Habitación');
                             $('#button_action').val('insert');
                             document.getElementById("modalHeader").style.background = "#28b779";
-                            $('#client_table').DataTable().ajax.reload();
+                            $('#room_table').DataTable().ajax.reload();
                             toastr_success();
                         }
                     }
                 })
             });
-            $(document).on('click', '.edit', function(){
-                var id = $(this).attr("id");
-                $.ajax({
-                    url: "{{ route('clients.fetchdata') }}",
-                    method: "GET",
-                    data:{id:id},
-                    dataType: "json",
-                    success:function(data)
-                    {
-                        $('#document').val(data.document);
-                        $('#name').val(data.name);
-                        $('#surnames').val(data.surnames);
-                        $('#birthdate').val(data.birthdate);
-                        $('#profession').val(data.profession);
-                        $('#id').val(id);
-                        $('#clientModal').modal('show');
-                        $('#action').val('Modificar');
-                        $('.modal-title').text('Editar Cliente');
-                        $('#button_action').val('update');
-                        document.getElementById('modalHeader').style.background = "#ffb848";
-                    }
-                })
-            });
-            $(document).on('click', '.delete', function(){
-                var id = $(this).attr('id');
-                Swal.fire({
-                  title: 'Estas por borrar este cliente',
-                  text: "Puedes revertir el cambio.",
-                  type: 'warning',
-                  showCancelButton: true,
-                  confirmButtonColor: '#3085d6',
-                  cancelButtonColor: '#d33',
-                  confirmButtonText: 'Sí, Borrar esto!',
-                  cancelButtonText: 'Cancelar'
-                }).then((result) => {
-                  if (result.value) {
-                    $.ajax({
-                    url:"{{ route('clients.deletedata') }}",
-                    method:"GET",
-                    data:{id:id},
-                        success:function(data)
-                        {
-                            Swal.fire(
-                            'Borrado!',
-                            'Elinacion exitosa.',
-                            'success'
-                            );
-                            $('#client_table').DataTable().ajax.reload();
-                        }
-                    })
-                  }
-                });
-            });
 
             $('#add_category').click(function(){
                 $('#categoryModal').modal('show');
                 $('#category_form')[0].reset();
-                $('#form_output').html('');
-                $('#button_action').val('insert');
-                $('#action').val('Agregar');
+                $('#form_output_cat').html('');
+                $('#button_action_cat').val('insert');
+                $('#action_cat').val('Agregar');
                 $('.modal-title').text('Nueva categoría');
                 document.getElementById("modalHeaderCategory").style.background = "#28b779";
             });
-            $('#obs_form').on('submit', function(event){
+            $('#category_form').on('submit', function(event){
                 event.preventDefault();
                 var form_data = $(this).serialize();
                 $.ajax({
-                    url: "{{ route('clients.postdataforobs') }}",
+                    url: "{{ route('categories.postdata') }}",
                     method: "POST",
                     data: form_data,
                     dataType: "json",
@@ -204,45 +162,22 @@
                             {
                                 error_html += '<ul class="alert alert-danger"><li>'+data.error[count]+'</li></ul>';
                             }
-                            $('#form_output_obs').html(error_html);
+                            $('#form_output_cat').html(error_html);
                             toastr_error();
                         }
                         else //cuando no esxiste errores
                         {
-                            $('#form_output_obs').html('');
-                            $('#action_obs').val('Agregar');
-                            $('.modal-title').text('Nueva Observacion');
-                            $('#button_action_obs').val('insert');
-                            $('#description').val('');
-                            document.getElementById("modalHeaderState").style.background = "#da542e";
-                            toastr_info();
+                            $('#form_output_cat').html('');
+                            $('#category_form')[0].reset();
+                            $('#action_cat').val('Agregar');
+                            $('.modal-title').text('Nueva Categoría');
+                            $('#button_action_cat').val('insert');
+                            document.getElementById("modalHeaderCategory").style.background = "#28b779";
+                            toastr_success();
                         }
                     }
                 })
             });
-        });
-    </script>
-    <script>
-        //listas dependientes
-        $(document).ready(function(){
-            $('#countries_list').on('change', function(){
-                var country_id = $(this).val();
-                if($.trim(country_id) != ''){
-                    $.get('departaments', {country_id: country_id}, function(departaments){ //get->ruta; varDeRequest:VarArriba
-                        $('#origin_departament').empty();//limpia el campo de anteriores resultados
-                        $('#origin_departament').append("<option value=''> Selecciona un departamento</option>");
-                        $.each(departaments, function(index, value){ //dos parametros que se reciben
-                            $('#origin_departament').append("<option value='"+value+"'>"+ value+"</option>");
-                        });
-                    });
-                    $.get('country', {country_id: country_id}, function(countries){ //get->ruta; varDeRquest:VarArriba
-                        $('#origin_country').empty();
-                        $.each(countries, function(id, name){
-                            $('#origin_country').val(name);//se toma el campo y se le agrega valor Pais
-                        });
-                    });
-                }
-            });   
         });
     </script>
 @endsection

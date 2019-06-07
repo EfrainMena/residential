@@ -16,13 +16,11 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('number');
-            $table->integer('level');
-            $table->string('status', 20);
+            $table->string('level', 3);
+            $table->string('status', 20)->default('free');
             $table->boolean('active')->default(1);
             $table->unsignedInteger('category_id');
-            $table->unsignedInteger('price_id');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('price_id')->references('id')->on('prices');
             $table->timestamps();
         });
     }
