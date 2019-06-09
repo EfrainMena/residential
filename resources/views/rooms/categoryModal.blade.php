@@ -37,16 +37,16 @@
                       </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="form-group">
-                          <label>Precio Fin de semana</label>
-                          <div class="input-group">
-                              <input type="text" class="form-control" name="weekend_price" id="weekend_price" placeholder="100.00">
-                              <div class="input-group-text">
-                                  <span class="fas fa-money-bill-alt"> Bs.</span>
-                              </div>
+                      <div class="form-group">
+                        <label>Precio Fin de semana</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" name="weekend_price" id="weekend_price" placeholder="100.00">
+                          <div class="input-group-text">
+                            <span class="fas fa-money-bill-alt"> Bs.</span>
                           </div>
                         </div>
                       </div>
+                    </div>
                   </div>
 
                 </div>

@@ -97,4 +97,14 @@ Route::middleware(['auth'])->group(function(){
 	//categorias
 	Route::post('categories/postdata', 'CategoryController@postData')->name('categories.postdata');
 
+	//asignaciones
+	Route::get('roomslist', 'AsignationController@indexPB')->name('asignations.index');
+	Route::get('roomslist1', 'AsignationController@index1')->name('asignations.index1');
+	Route::get('roomslist2', 'AsignationController@index2')->name('asignations.index2');
+	Route::get('roomslist3', 'AsignationController@index3')->name('asignations.index3');
+	Route::post('asignations/postdata', 'AsignationController@postData')->name('asignations.postdata');
+	//autocomplete
+	Route::get('Client/findClient', 'AsignationController@findClient');
+	//Acciones
+	Route::get('rooms/maintenance', 'ActionController@maintenance')->name('rooms.maintenance');
 });

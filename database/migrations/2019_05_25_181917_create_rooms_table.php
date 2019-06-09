@@ -17,7 +17,7 @@ class CreateRoomsTable extends Migration
             $table->increments('id');
             $table->integer('number');
             $table->string('level', 3);
-            $table->string('status', 20)->default('free');
+            $table->string('status', 20)->default('Libre');
             $table->boolean('active')->default(1);
             $table->unsignedInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');

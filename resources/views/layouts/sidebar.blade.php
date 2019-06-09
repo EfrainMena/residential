@@ -53,9 +53,10 @@
                         @can('roles.index')
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('roles.index')}}" aria-expanded="false"><i class="fas fa-file-alt"></i><span class="hide-menu"> Roles</span></a></li>
                         @endcan
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('countries.index') }}" aria-expanded="false"><i class="fas fa-building"></i><span class="hide-menu"> Paises</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('countries.index') }}" aria-expanded="false"><i class="fas fa-location-arrow"></i><span class="hide-menu"> Localidades</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('clients.index') }}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu"> Clientes</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('rooms.index') }}" aria-expanded="false"><i class="fas fa-bed"></i><span class="hide-menu"> Habitaciones</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('asignations.index') }}" aria-expanded="false"><i class="fas fa-building"></i><span class="hide-menu"> Asignaciones</span></a></li>
                         
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
@@ -152,6 +153,7 @@
     @yield('countriesScript')
     @yield('clientsScript')
     @yield('roomsScript')
+    @yield('asignationsScript')
     <!--SweetAlerts en vista-->
     @include('sweetalert::alert')
     <!--Alertas toastr-->

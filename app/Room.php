@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     //
-    protected $fillable = ['id', 'number', 'level', 'active', 'category_id'];
+    protected $fillable = ['id', 'number', 'level', 'active', 'category_id', 'status'];
 
     public function category()
     {
