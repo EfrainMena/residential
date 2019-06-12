@@ -8,7 +8,7 @@ class Client extends Model
 {
     //
     protected $table = 'clients';
-    protected $fillable = ['id', 'document', 'name', 'surnames', 'birthdate', 'profession', 'civil_state', 'origin_country', 'origin_departament', 'nationality', 'active', 'user_id'];
+    protected $fillable = ['id', 'document', 'name', 'surnames', 'birthdate', 'profession', 'civil_state', 'origin_country', 'origin_departament', 'nationality', 'active', 'user_id', 'room_id'];
 
     public function findByDocument($q)
     {

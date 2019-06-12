@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientRoomTable extends Migration
+class CreateAsignationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateClientRoomTable extends Migration
      */
     public function up()
     {
-        Schema::create('client_room', function (Blueprint $table) {
+        Schema::create('asignations', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
             $table->time('hour');
@@ -34,6 +34,6 @@ class CreateClientRoomTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client_room');
+        Schema::dropIfExists('asignations');
     }
 }

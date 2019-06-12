@@ -26,7 +26,9 @@ class CreateClientsTable extends Migration
             $table->string('nationality', 20);
             $table->boolean('active')->default(1);
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('room_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('room_id')->references('id')->on('rooms');
             $table->timestamps();
         });
     }
