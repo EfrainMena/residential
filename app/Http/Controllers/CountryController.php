@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use DataTables;
 use Validator;
 use Illuminate\Validation\Rule;
+use Caffeinated\Shinobi\Models\Permission;
+use Caffeinated\Shinobi\Models\Role;
 use App\Country;
 use App\State;
 
@@ -99,6 +101,12 @@ class CountryController extends Controller
         );
         echo json_encode($output);
     }
+
+    function deleteData(Request $request)
+    {
+        Country::find($request->input('id'))->update(['active' => 0]);
+    }
+
     //se recuperan datos de departamentos
     public function fetchDataForState(Request $request)
     {

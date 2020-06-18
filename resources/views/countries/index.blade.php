@@ -87,7 +87,7 @@
                 $('#country_form')[0].reset();
                 $('#form_output').html('');
                 $('#button_action').val('insert');
-                $('#action').val('Crear');
+                $('#action').val('Agregar');
                 $('.modal-title').text('Nuevo Pais');
                 document.getElementById("modalHeader").style.background = "#28b779";
             });
@@ -148,6 +148,40 @@
                     }
                 })
             });
+
+            // borrar pais
+            $(document).on('click', '.delete', function(){
+                var id = $(this).attr('id');
+                Swal.fire({
+                  title: 'Estas por borrar este pais',
+                  text: "Puedes revertir el cambio.",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Sí, Borrar esto!',
+                  cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                        url:"{{ route('deletedata.countries') }}",
+                        method:"GET",
+                        data:{id:id},
+                            success:function(data)
+                            {
+                                Swal.fire(
+                                'Borrado!',
+                                'Eliminacion exitosa.',
+                                'success'
+                                );
+                                $('#country_table').DataTable().ajax.reload();
+                            }
+                        })
+                    }
+                });
+            });
+
+
             //agregar departamentos
             $(document).on('click', '.add_state', function(){
                 var id = $(this).attr("id");

@@ -70,4 +70,9 @@ class CategoryController extends Controller
         );
         echo json_encode($output);
     }
+
+
+
+   
+
 }

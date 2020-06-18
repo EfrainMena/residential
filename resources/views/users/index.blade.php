@@ -32,18 +32,24 @@
         </div>
     </div>
 </div>
+
 <!-- ============================================================== -->
 <!-- End Bread crumb and right sidebar toggle -->
 <!-- ============================================================== -->
 <div class="container-fluid">
+
     <!-- ============================================================== -->
     <!-- Start Page Content -->
     <!-- ============================================================== -->
     <div class="card">
+
         <div class="card-body">
             <h5 class="card-title">
-                
-                
+                @if (session('info'))
+                    <div class="alert alert-success">
+                        {{ session('info') }}
+                    </div>
+                @endif
             </h5>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">

@@ -18,6 +18,7 @@
 @yield('rooms')
 <!-- End Cointainer fluid  -->
 @include('asignations.freeModal')
+@include('asignations.ocupedModal')
 @endsection
 @section('asignationsScript')
     <script>
@@ -62,7 +63,7 @@
                             $('#form_output_free').html('');
                             $('#free_form')[0].reset();
                             $('#action_free').val('Registrar');
-                            $('.modal-title').text('Asegnación');
+                            $('.modal-title').text('Asignación');
                             $('#button_action_free').val('insert');
                             document.getElementById("modalHeaderFree").style.background = "#28b779";
                             $('#freeModal').on('hidden.bs.modal', function () { location.reload(); });
@@ -71,6 +72,21 @@
                     }
                 })
             });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             $(document).on('click', '.to-maintenance', function(){
                 var id = $(this).attr('id');
@@ -96,6 +112,144 @@
                         }
                     })
                   }
+                });
+            });
+
+            $(document).on('click', '.ocuped', function(){
+                var room_id = $(this).attr("id");
+                $.ajax({
+                    url: "{{ route('asignations.ocuped') }}",
+                    method: "GET",
+                    data:{room_id:room_id},
+                    dataType: "json",
+                    success:function(data)
+                    {
+                        $('#document').text(data.document);
+                        $('#name').text(data.name);
+                        $('#surnames').text(data.surnames);
+                        $('#origin_country').text(data.origin_country);
+                        $('#origin_departament').text(data.origin_departament);
+                        $('#nationality').text(data.nationality);
+                        $('#civil_state').text(data.civil_state);
+                        $('#profession').text(data.profession);
+                        $('#client_id_ocuped').val(data.id);
+                        $('#room_id_ocuped').val(room_id);
+                        $('#ocupedModal').modal('show');
+                        $('#action_ocuped').val('Finalizar');
+                        $('.modal-title').text('Ver Huésped');
+                        //$('#button_action').val('update');
+                        document.getElementById('modalHeaderOcuped').style.background = "#da542e";
+                    }
+                })
+            });
+
+
+            $('#ocuped_form').on('submit', function(event){
+                event.preventDefault();
+                var form_data = $(this).serialize();
+                Swal.fire({
+                  title: 'Quieres desocupar esta habitación',
+                  text: "Los datos del clientes no se verán aqui",
+                  type: 'question',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Sí, Desocupar!',
+                  cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                            url: "{{ route('asignations.postdataocuped') }}",
+                            method: "POST",
+                            data: form_data,
+                            dataType: "json",
+                            success:function(data)
+                            {
+                                $('#ocuped_form')[0].reset();
+                                document.getElementById("modalHeaderOcuped").style.background = "#28b779";
+                                $('#ocupedModal').on('hidden.bs.modal', function () { location.reload(); });
+                                toastr_info();
+                            }
+                        })
+                    }
+                });
+            });
+
+
+            $(document).on('click', '.cleaning', function(){
+                var id = $(this).attr('id');
+                Swal.fire({
+                    title: 'Esta habitación se encuentra en Limpieza',
+                    text: "¿Quieres finalizarlo?",
+                    type: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Finalizar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                            url:"{{ route('rooms.finishMaint') }}",
+                            method:"GET",
+                            data:{id:id},
+                            success:function(data)
+                            {
+                                location.reload();
+                            }
+                        })
+                    }
+                });
+            });
+            $(document).on('click', '.clean', function(){
+                var id = $(this).attr('id');
+                Swal.fire({
+                    title: 'Esta habitacion necesita limpieza',
+                    text: "¿Desea limpiarlo?",
+                    type: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Finalizar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                            url:"{{ route('rooms.limpiando') }}",
+                            method:"GET",
+                            data:{id:id},
+                            success:function(data)
+                            {
+                                location.reload();
+                            }
+                        })
+                    }
+                });
+            });
+
+            $(document).on('click', '.maintenance', function(){
+                var id = $(this).attr('id');
+                Swal.fire({
+                  title: 'Esta habitación se encuentra en mantenimiento',
+                  text: "¿Quieres finalizarlo?",
+                  type: 'question',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Finalizar',
+                  cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                        url:"{{ route('rooms.finishMaint') }}",
+                        method:"GET",
+                        data:{id:id},
+                            success:function(data)
+                            {
+                                location.reload();
+                            }
+                        })
+                    }
                 });
             });
         })

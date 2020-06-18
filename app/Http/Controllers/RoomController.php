@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Caffeinated\Shinobi\Models\Permission;
+use Caffeinated\Shinobi\Models\Role;
 use Validator;
 use DataTables;
 use App\Room;
@@ -103,4 +105,11 @@ class RoomController extends Controller
         );
         echo json_encode($output);
     }
+
+
+     function deleteData(Request $request)
+    {
+        Room::find($request->input('id'))->update(['active' => 0]);
+    }
+
 }

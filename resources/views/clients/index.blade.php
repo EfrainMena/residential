@@ -166,22 +166,22 @@
                   confirmButtonText: 'Sí, Borrar esto!',
                   cancelButtonText: 'Cancelar'
                 }).then((result) => {
-                  if (result.value) {
-                    $.ajax({
-                    url:"{{ route('clients.deletedata') }}",
-                    method:"GET",
-                    data:{id:id},
-                        success:function(data)
-                        {
-                            Swal.fire(
-                            'Borrado!',
-                            'Elinacion exitosa.',
-                            'success'
-                            );
-                            $('#client_table').DataTable().ajax.reload();
-                        }
-                    })
-                  }
+                    if (result.value) {
+                        $.ajax({
+                        url:"{{ route('clients.deletedata') }}",
+                        method:"GET",
+                        data:{id:id},
+                            success:function(data)
+                            {
+                                Swal.fire(
+                                'Borrado!',
+                                'Eliminacion exitosa.',
+                                'success'
+                                );
+                                $('#client_table').DataTable().ajax.reload();
+                            }
+                        })
+                    }
                 });
             });
 

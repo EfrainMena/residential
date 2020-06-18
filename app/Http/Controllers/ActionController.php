@@ -14,4 +14,12 @@ class ActionController extends Controller
     {
         Room::find($request->input('id'))->update(['status' => 'Mantenimiento']);
     }
+	function limpiando(Request $request)
+    {
+        Room::find($request->input('id'))->update(['status' => 'Limpiando']);
+    }
+    function finishMaint(Request $request)
+    {
+        Room::find($request->input('id'))->update(['status' => 'Libre']);
+    }
 }

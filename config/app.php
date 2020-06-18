@@ -172,6 +172,7 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         //Validacion de letras y espacios
         App\Providers\CustomValidationRulesProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -240,6 +241,7 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         //DataTables-Alias
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'PDF' => 'Barryvdh\DomPDF\Facade',
 
 
     ],

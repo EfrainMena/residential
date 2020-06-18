@@ -42,13 +42,20 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">
-                
+
+                    @if (session('info'))
+                        <div class="alert alert-success">
+                            {{ session('info') }}
+                        </div>
+                    @endif
+
+
                @can('roles.create')
-                <a href="{{route('roles.create')}}" class="btn btn-sm btn-primary pull-right">
+                <a href="{{route('roles.create')}}" class="btn btn-sm btn-primary float-right card-title">
                 Crear
                 </a>
                 @endcan
-                           </h5>
+            </h5>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered" id="zero_config">
                     <thead>

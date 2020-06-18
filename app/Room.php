@@ -13,4 +13,13 @@ class Room extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function clients()
+    {
+    	return $this->hasMany(Client::class);
+    }
+    public function asignations()
+    {
+        return $this->hasMany(Asignation::class,'id');
+    }
 }

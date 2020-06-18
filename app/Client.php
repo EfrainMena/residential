@@ -12,6 +12,15 @@ class Client extends Model
 
     public function findByDocument($q)
     {
-        return $this->where('document', 'LIKE', "%$q%")->get();
+        return $this->where('document', 'LIKE', "%$q%")->where('active', 1)->get();
+    }
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
+    public function asignations()
+    {
+        return $this->hasMany(Asignation::class,'id');
     }
 }
